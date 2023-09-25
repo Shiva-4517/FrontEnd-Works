@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./assets/CSS/style.css">
+</head>
+
+<body>
+
+  <div class="login_parent_block">
+    <div class="login_child_block_one" id="succcesblock">
+      <div class="login_innerblock">
+          <div class="">
+              <img src="./assets/images/icon-list.svg" class="responsive" id="responsive_image">
+          </div>
+          <div class="text_block">
+              <h4>Thanks For <br>Subscribing!</h4>
+          </div>
+       <div class="">
+          <p id="email_text">a confirmation message has been sent to <br> this <span id="infotext"></span> open it and click <br>the button inside to confirm your subscription.</p>
+       </div>
+       <div class="mt-2">
+          <button  type="submit" id="subscribe_button">Dismiss message</button>
+        </div>
+      </div>
+
+  </div>
+    <div class="login_child_block" id="hideblock">
+     
+      <div class="login_left_block">
+        <h4>Stay updated!</h4>
+        <p id="tag">Join 60,000+ product managers receiving monthly <br> updates on:</p>
+        <p id="tag"><img src="./assets/images/icon-list.svg" class="img-fluid">Product discovery and building what matters</p>
+        <p id="tag"><img src="./assets/images/icon-list.svg" class="img-fluid">Measuring to ensure updates are a success</p>
+        <p id="tag"><img src="./assets/images/icon-list.svg" class="img-fluid">And much more!</p>
+
+        <div class="user_details_block">
+          <div class="label_class">
+            <label for="email" id="email_label">Email address</label>
+         
+          </div>
+          <div class="error_text_class">
+            <p id="errordata"></p>
+          </div>
+         
+
+
+      
+        </div>
+        <div class="">
+         
+          <input type="email" placeholder="email@company.com" class="form-control" id="textInput">
+        </div>
+
+        <div class="">
+          <button  type="submit" id="subscribe_button"  onclick="submitform()">Subscribe to monthly newsletter</button>
+        </div>
+      </div>
+      <div class="login-right_block">
+        <img src="./assets/images/illustration-sign-up-desktop.svg" class="responsive">
+      </div>
+
+
+
+
+      <!-- 
+      Thanks for subscribing!
+
+      A confirmation email has been sent to ash@loremcompany.com.
+      Please open it and click the button inside to confirm your subscription.
+
+      Dismiss message -->
+
+    </div>
+  </div>
+
+
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+  <script>
+   
+
+    function submitform(){
+    
+      let validinput = document.getElementById("textInput");
+      let validexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+      let data = document.getElementById("errordata");
+      let showblock  = document.getElementById("succcesblock");
+      let hidediv = document.getElementById("hideblock");
+      let showemailinfo = document.getElementById("infotext");
+
+      if(validexp.test(validinput.value)){
+       
+        showblock.style.display = "block";
+        hidediv.style.display = "none";
+        showemailinfo.innerText = validinput.value;
+      } 
+      else{
+
+        validinput.style.border = "1px solid red";
+        data.innerText = "Valid Email required";
+        validinput.style.background = "#ffe7e3";  
+        validinput.style.placeContent = "#fe8b81";
+        validinput.style.setProperty = "red";
+       
+      }
+
+   
+    }
+  </script>
+</body>
+
+</html>
